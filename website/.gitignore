@@ -1,0 +1,29 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Ignore specific file types within public/assets and backend/assets and node_modules
+**/node_modules
+**/public/assets/**/*[.jpg,.jpeg,.png,.gif,.bmp,.svg,.ico,.webp,.mp4,.avi,.mov,.mkv,.wmv,.flv,.webm,.key]
+backend/assets/**/*[.jpg,.jpeg,.png,.gif,.bmp,.svg,.ico,.webp,.mp4,.avi,.mov,.mkv,.wmv,.flv,.webm,.key]
