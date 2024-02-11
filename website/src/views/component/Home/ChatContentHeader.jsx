@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
-import { selectedUserChat } from "../../../store/redux/chat";
+import { useDispatch, useSelector } from "react-redux";
+import { selectedUserChat, setSelectedChat } from "../../../store/redux/chat";
 import { selectLogInUserInfo } from "../../../store/redux/user";
 import { getChatImage, getSender } from "../../../utils/helpers";
 import { useState } from "react";
@@ -11,17 +11,21 @@ const ChatContentHeader = (props) => {
 	const [showSearch, setShowSearch] = useState(false);
 	const [show, setShow] = useState(false);
 	const [editGroupChat, setEditGroupChat] = useState(false);
+	const dispatch = useDispatch();
 
 	const handleEditGroup = () => {
 		setShow(true);
 		setEditGroupChat(true);
+	};
+	const handleBack = () => {
+		dispatch(setSelectedChat(null));
 	};
 	return (
 		<>
 			<div className="tyn-chat-head">
 				<ul className="tyn-list-inline d-md-none ms-n1">
 					<li>
-						<button className="btn btn-icon btn-md btn-pill btn-transparent js-toggle-main">
+						<button className="btn btn-icon btn-md btn-pill btn-transparent js-toggle-main" onClick={handleBack}>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width={16}

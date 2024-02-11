@@ -2,13 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import ChatContentHeader from "./ChatContentHeader";
 import ChatContentAside from "./ChatContentAside";
 import { useDispatch, useSelector } from "react-redux";
-import {
-	selectLoggedInUserChats,
-	selectedUserChat,
-	selectedUserMessages,
-	setMessages,
-	setUserAllMessages,
-} from "../../../store/redux/chat";
+import { selectLoggedInUserChats, selectedUserChat, selectedUserMessages, setMessages } from "../../../store/redux/chat";
 import { selectLogInUserInfo } from "../../../store/redux/user";
 import Modal from "react-bootstrap/Modal";
 // import GroupChatModal from "../../../styles/modal/GroupChatModal";
@@ -117,7 +111,7 @@ const ChatContent = () => {
 
 	return (
 		<>
-			<div className={`tyn-main tyn-chat-content ${showAside && "aside-shown"}`} id="tynMain">
+			<div className={`tyn-main tyn-chat-content ${showAside && "aside-shown"} ${userSelectedChat && "main-shown"} `}>
 				{userSelectedChat && <ChatContentHeader showAside={showAside} setShowAside={setShowAside} />}
 
 				<div ref={chatContainerRef} className="tyn-chat-body js-scroll-to-end" id="tynChatBody">
@@ -145,11 +139,7 @@ const ChatContent = () => {
 							<div className="tyn-chat-form-insert">
 								<ul className="tyn-list-inline gap gap-3">
 									<li className="dropup">
-										<button
-											className="btn btn-icon btn-light btn-md btn-pill"
-											data-bs-toggle="dropdown"
-											data-bs-offset="0,10"
-										>
+										<button className="btn btn-icon btn-light btn-md btn-pill">
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												width={16}
